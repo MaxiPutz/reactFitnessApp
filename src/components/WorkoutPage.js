@@ -33,7 +33,7 @@ import { useBackListener } from "../myHooks/useBackListener"
 export default function WorkoutPage(props) {
 
 
-  const { id, date } = useParamsujkj()
+  const { id, date } = useParams()
   // console.log(date);
   const navigate = useNavigate()
   const select = useSelector((state => state.CSV.viewWorkoutData))

@@ -14,7 +14,7 @@ import {
 import { setMovingMarker } from "../stateManager"
 
 
-import { loadMetaData, loadworkoutData, workoutFilterdById, calcPic, loadAllBackgroundPicture } from "./businessLogic"
+import { loadMetaData, loadworkoutData, workoutFilterdById, calcPic, loadAllBackgroundPicture, loadData } from "./businessLogic"
 
 
 function* loadMetaDataSaga(action) {
@@ -28,9 +28,8 @@ function* loadworkoutDataSaga(action) {
 }
 
 function* loadInitDataRequestedSaga(action) {
-  const metaData = yield call(loadMetaData)
+  const { metaData, workoutData } = yield call(loadData)
   yield put(loadMetaDataSuccess(metaData))
-  const workoutData = yield call(loadworkoutData)
   yield put(loadworkoutDataSuccess(workoutData))
 
   // new init flow
