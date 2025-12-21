@@ -15,8 +15,8 @@ import SportsScoreTwoToneIcon from '@mui/icons-material/SportsScoreTwoTone';
 import GolfCourseTwoToneIcon from '@mui/icons-material/GolfCourseTwoTone';
 import MovingMarker from "./MovingMarker";
 
-
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default; // eslint-disable-line
+import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker?worker'
+mapboxgl.workerClass = MapboxWorker
 
 
 const TOKEN = 'pk.eyJ1IjoibWF4aXB1dHoiLCJhIjoiY2p0eXoyNHBvMjVobzRlbXB0aHBscTd6NCJ9.498DhQ66cjxrx1hmPBYkag'

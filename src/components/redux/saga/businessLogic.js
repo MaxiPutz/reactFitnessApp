@@ -1,8 +1,4 @@
 import axios from 'axios'
-import metaData from '../../../assets/metaData.csv'
-import workoutData from '../../../assets/workoutData.csv'
-import picture from '../../../assets/pictures.txt'
-
 
 const backendURL = "http://localhost:8080"
 
@@ -10,10 +6,10 @@ const backendURL = "http://localhost:8080"
 async function loadData() {
 
   const accessToken = sessionStorage.getItem("accessToken");
-  // console.log(accessToken, "accessToken")
+  console.log(accessToken, "accessToken")
   const api = sessionStorage.getItem("url")
   const bearer = "Bearer " + accessToken
-  // console.log(api)
+  console.log(api)
   const serverData = await (fetch(backendURL + api, {
     method: 'GET',
     withCredentials: true,
@@ -178,10 +174,6 @@ const scalePathToSquare = (listLatLongTimerTime, squareInPX) => {
 const svgElement = (stringPathForSVG, squareInPX) => {
   let transformVal = "scale(1, -1) translate(0, -" + squareInPX + ")"
   return transformVal
-  return <svg width={squareInPX} height={squareInPX} >
-    <path d={stringPathForSVG} fill="transparent" stroke="black"
-      transform={transformVal} ></path>
-  </svg>
 }
 
 // radius in ca 1 meter
@@ -199,15 +191,6 @@ const isCoordinateInMark = (mark, coordinate, radius = 1) => {
     Math.acos(Math.min(a, 1))
 
   return maxMeter < radius
-  console.log(mark);
-  console.log(coordinate);
-  radius = radius / 100 / 100 // ca 1 meter
-  let dLat = mark.lat - coordinate.lat
-  let dLong = mark.long - coordinate.long
-  let dist = (dLat ** 2 + dLong ** 2) ** 0.5
-
-  console.log(dist, dLat, dLong);
-  return dist < radius ? true : false
 }
 
 
