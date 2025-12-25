@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const backendURL = "http://localhost:8080"
+const backendURL = (import.meta.env.VITE_URL ?? "http://localhost:8080") + (import.meta.env.VITE_BASE ?? "")
 
 
 async function loadData() {
