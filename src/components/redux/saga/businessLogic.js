@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-const backendURL = (import.meta.env.VITE_URL ?? "http://localhost:8080") + (import.meta.env.VITE_BASE ?? "")
 
 
 async function loadData() {
@@ -10,7 +9,7 @@ async function loadData() {
   const api = sessionStorage.getItem("url")
   const bearer = "Bearer " + accessToken
   console.log(api)
-  const serverData = await (fetch(backendURL + api, {
+  const serverData = await (fetch(api, {
     method: 'GET',
     withCredentials: true,
     credentials: 'include',
