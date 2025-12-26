@@ -25,22 +25,18 @@ function App() {
 
   return (
     <div>
-      <header>
 
-      </header>
-      <body>
-        {/* <MetaDataView></MetaDataView> */}
-        <Routes>
-          <Route
-            path="/workout/:id/:date"
-            element={<WorkoutPage></WorkoutPage>}
-          ></Route>
-          <Route
-            path="/"
-            element={<MetaDataView></MetaDataView>}
-          ></Route>
-        </Routes>
-      </body>
+      {/* <MetaDataView></MetaDataView> */}
+      <Routes>
+        <Route
+          path="/workout/:id/:date"
+          element={<WorkoutPage></WorkoutPage>}
+        ></Route>
+        <Route
+          path="/"
+          element={<MetaDataView></MetaDataView>}
+        ></Route>
+      </Routes>
     </div>
   );
 }

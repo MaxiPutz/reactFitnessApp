@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.VITE_UI_BASE ?? ""}>
       <React.StrictMode>
         <App />
       </React.StrictMode>
