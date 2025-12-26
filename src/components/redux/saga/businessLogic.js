@@ -11,13 +11,17 @@ async function loadData() {
   console.log(api)
   const serverData = await (fetch(api, {
     method: 'GET',
-    withCredentials: true,
-    credentials: 'include',
     headers: {
       'Authorization': bearer,
-      'Content-Type': 'application/json'
-    }
+      'Accept': 'application/json'
+    },
+    credentials: "omit",
   }))
+
+  if (!serverData.ok) {
+    const txt = await serverData.text().catch(() => "");
+    throw new Error(`HTTP ${res.status} ${res.statusText}: ${txt}`);
+  }
 
   const jsonData = await serverData.json()
   // console.log(jsonData)
